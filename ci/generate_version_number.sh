@@ -48,7 +48,7 @@ if [[ -z "${current_branch}" ]]; then
 fi
 
 if [[ "$current_branch" = "master" ]]; then
-  commit_count=$(git rev-list --count $(git log --follow -1 --pretty=%H "${version_in}")..HEAD)
+  commit_count=$(git rev-list --count "$(git log --follow -1 --pretty=%H "${version_in}")"..HEAD)
   >&2 echo "Commit count since last release: ${commit_count}"
   full_version="${version_major_minor}.${commit_count}"
 else
